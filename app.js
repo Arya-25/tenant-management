@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const tenantRoutes = require('./routes/tenants');
 const teamRoutes = require('./routes/teams');
-const userRoutes = require('./routes/users');  
+const userRoutes = require('./routes/users');
+const orderRoutes = require('./routes/orders');
 require('dotenv').config();
 
 const app = express();
@@ -11,7 +12,8 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 app.use('/tenants', tenantRoutes);
 app.use('/tenants', teamRoutes);
-app.use('/users', userRoutes); 
+app.use('/users', userRoutes);
+app.use('/orders', orderRoutes);
 
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
