@@ -28,6 +28,10 @@ const orderSchema = new mongoose.Schema({
         type: String,
         required: true,
         enum: ['boxes', 'packets']
+    },
+    customFields: {
+        type: mongoose.Schema.Types.Mixed,
+        default: {}
     }
 });
 
